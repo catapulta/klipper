@@ -1,5 +1,7 @@
 import cantools
 
+# Note: Signal defaults to little endian
+
 # 0x00 - NMT Message (Reserved)
 
 # 0x001 - Heartbeat
@@ -71,7 +73,7 @@ setControllerModeMsg = cantools.database.can.Message(
 # 0x00C - Set Input Pos
 inputPos = cantools.database.can.Signal("Input_Pos", 0, 32)
 inputPos.is_float = True
-velFF = cantools.database.can.Signal("Vel_FF", 32, 16, is_signed=True)
+velFF = cantools.database.can.Signal("", 32, 16, is_signed=True)
 velFF.scale = 0.001
 torqueFF = cantools.database.can.Signal(
     "Torque_FF", 48, 16, is_signed=True)
